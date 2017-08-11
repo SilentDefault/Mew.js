@@ -1,5 +1,8 @@
 # Mew.js
-> Convert integer numbers to different formats
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com) 
+[![forthebadge](http://forthebadge.com/images/badges/check-it-out.svg)](http://forthebadge.com)
+
+Convert integer numbers to different formats
 
 ## Why ##
 Numbers are used with several meanings and different contexts, Mew provides the help of converting integers to the following contexts:
@@ -60,9 +63,12 @@ mew.to('cat', 1, true); //=> "one cat"
 mew.to('cat', 2); //=> "2 cats"
 mew.to('cat', 2, true); //=> "two cats"
 ```
+## Configuration ##
+You can test the `Configuration` object to change lenguage and use (or not) zeroBased.
+In future i plan add more configuration options.
 ## More functions? ##
 I started to code Mew at 2017-08-10, in the future i wish make Mew more useful and add the next functions:
--  [ ] integer to Year unit (Eons, Decades, Millennials, etc).
+-  [x] integer to Year unit (Eons, Decades, Millennials, etc).
 -  [ ] pass a function as parameter in `mew.to()` to expand to new horizons.
 -  [ ] add a configuration options to specify the first day of week. 
 -  [ ] integer to Money unit ($,€,¥, etc).
