@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copyright:   Silent* <silentdefault@gmail.com> 
  * License:     <see file /License>
  * Created:     2017-08-10
@@ -13,6 +13,7 @@
 
         let configuration = {//configurations
             zeroBased: false,//to use zero base number in day and month
+            lenguage: 'es'
         };
 
         _mew.config = function (a) {
@@ -68,9 +69,7 @@
                     Milenio: 1000,
                     Siglo: 100,
                     Década: 10,
-                    Sexenio: 6,
                     Lustro: 5,
-                    Trienio: 3,
                     Bienio: 2,
                     año: 1
                 }
@@ -83,6 +82,15 @@
                     0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine',
                     10: 'ten', 11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fifteen', 16: 'sixteen', 17: 'seventeen', 18: 'eighteen', 19: 'nineteen',
                     20: 'twenty'
+                },
+                Year: {
+                    Eon: 1000000000,
+                    Millenium: 1000,
+                    Century: 100,
+                    Decade: 10,
+                    Lustrum: 5,
+                    Biennium: 2,
+                    Year: 1
                 }
             }
         };
@@ -117,11 +125,10 @@
             var K = lenguages[configuration.lenguage].ordinal;
             for (let z in K) {
                 while (a >= K[z]) {
-                    if (R == ' ') {
-                        R = z;
-                    } else {
-                        R += ' ' + z;
+                    if (R != '') {
+                        R += ' ';
                     }
+                    R += z;
                     a -= K[z];
                 }
             }
@@ -153,6 +160,51 @@
             if (typeof b !== 'string') {
                 throw Error(`Specify the name of the unit`);
             }
+            b = plural(a, b);
+            if (c) {
+                a = _mew.toCardinal(a);
+            }
+            return `${a} ${b}`;
+        }
+
+        _mew.toYear = function (a, c = false) {
+            a = checkNumber(a);
+            let R = '';
+            let K = lenguages[configuration.lenguage].Year;
+            let Z = {};
+            let Y = '';
+            for (let z in K) {
+                let y = 0;
+                while (a >= K[z]) {
+                    y += 1;
+                    a -= K[z];
+                }
+                Z[z] = y;
+            }
+            for (let z in Z) {
+                if (Z[z] > 0) {
+                    if (R != '') {
+                        R += ', ';
+                    }
+                    if (c) {
+                        Z[z] = _mew.toCardinal(Z[z]);
+                    }
+                    Y = plural(Z[z], z);
+                    R += `${Z[z]} ${Y}`;
+                }
+            }
+            return R;
+        }
+
+        function checkNumber(a) {
+            a = Number(a);
+            if (typeof a === 'number' && !isNaN(a)) {
+                return a;
+            } else {
+                throw Error(`It's not a number`);
+            }
+        }
+        function plural(a, b) {
             if (a != 1 && a != -1) {
                 if (b.substr(-1) != 's') {
                     switch (configuration.lenguage) {
@@ -171,35 +223,7 @@
                     }
                 }
             }
-            if (c) {
-                a = _mew.toCardinal(a);
-            }
-            return `${a} ${b}`;
-        }
-
-        //doesn't work yet
-        //_mew.toYear = function (a, c = false) {
-        //    a = checkNumber(a);
-        //    var K = lenguages[configuration.lenguage].Year;
-        //    console.log(K);
-        //    for (let z in K) {
-        //        let y = 0;
-        //        while (a >= K[z]) {
-        //            y += 1;
-        //            a -= K[z];
-        //        }
-        //        K[z] = y;
-        //    }
-        //    return K;
-        //}
-
-        function checkNumber(a) {
-            a = Number(a);
-            if (typeof a === 'number' && !isNaN(a)) {
-                return a;
-            } else {
-                throw Error(`It's not a number`);
-            }
+            return b;
         }
 
         return _mew;
