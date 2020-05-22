@@ -238,10 +238,18 @@
                 771: 'Pyukumuku', 772: 'Type: Null', 773: 'Silvally', 774: 'Minior', 775: 'Komala', 776: 'Turtonator', 777: 'Togedemaru', 778: 'Mimikyu', 779: 'Bruxish', 780: 'Drampa',
                 781: 'Dhelmise', 782: 'Jangmo-o', 783: 'Hakamo-o', 784: 'Kommo-o', 785: 'Tapu Koko', 786: 'Tapu Lele', 787: 'Tapu Bulu', 788: 'Tapu Fini', 789: 'Cosmog', 790: 'Cosmoem',
                 791: 'Solgaleo', 792: 'Lunala', 793: 'Nihilego', 794: 'Buzzwole', 795: 'Pheromosa', 796: 'Xurkitree', 797: 'Celesteela', 798: 'Kartana', 799: 'Guzzlord', 800: 'Necrozma',
-                801: 'Magearna', 802: 'Marshadow', 803: 'Poipole', 804: 'Naganadel', 805: 'Stakataka', 806: 'Blacephalon', 807: 'Zeraora'
+                801: 'Magearna', 802: 'Marshadow', 803: 'Poipole', 804: 'Naganadel', 805: 'Stakataka', 806: 'Blacephalon', 807: 'Zeraora', 808: 'Meltan', 809: 'Melmetal', 810: 'Grookey',
+                811: 'Thwackey', 812: 'Rillaboom', 813: 'Scorbunny', 814: 'Raboot', 815: 'Cinderace', 816: 'Sobble', 817: 'Drizzile', 818: 'Inteleon', 819: 'Skwovet', 820: 'Greedent',
+                821: 'Rookidee', 822: 'Corvisquire', 823: 'Corviknight', 824: 'Blipbug', 825: 'Dottler', 826: 'Orbeetle', 827: 'Nickit', 828: 'Thievul', 829: 'Gossifleur', 830: 'Eldegoss',
+                831: 'Wooloo', 832: 'Dubwool', 833: 'Chewtle', 834: 'Drednaw', 835: 'Yamper', 836: 'Boltund', 837: 'Rolycoly', 838: 'Carkol', 839: 'Coalossal', 840: 'Applin',
+                841: 'Flapple', 842: 'Appletun', 843: 'Silicobra', 844: 'Sandaconda', 845: 'Cramorant', 846: 'Arrokuda', 847: 'Barraskewda', 848: 'Toxel', 849: 'Toxtricity', 850: 'Sizzlipede',
+                851: 'Centiskorch', 852: 'Clobbopus', 853: 'Grapploct', 854: 'Sinistea', 855: 'Polteageist', 856: 'Hatenna', 857: 'Hattrem', 858: 'Hatterene', 859: 'Impidimp', 860: 'Morgrem',
+                861: 'Grimmsnarl', 862: 'Obstagoon', 863: 'Perrserker', 864: 'Cursola', 865: 'Sirfetch\'d', 866: 'Mr. Rime', 867: 'Runerigus', 868: 'Milcery', 869: 'Alcremie', 870: 'Falinks',
+                871: 'Pincurchin', 872: 'Snom', 873: 'Frosmoth', 874: 'Stonjourner', 875: 'Eiscue', 876: 'Indeedee', 877: 'Morpeko', 878: 'Cufant', 879: 'Copperajah', 880: 'Dracozolt',
+                881: 'Arctozolt', 882: 'Dracovish', 883: 'Arctovish', 884: 'Duraludon', 885: 'Dreepy', 886: 'Drakloak', 887: 'Dragapult', 888: 'Zacian', 889: 'Zamazenta', 890: 'Eternatus'
             };
-            if ((!configuration.zeroBased && (a < 1 || a > 807)) || (configuration.zeroBased && (a < 0 || a > 806))) {
-                throw Error(`Can not convert to day`);
+            if ((!configuration.zeroBased && (a < 1 || a > 890)) || (configuration.zeroBased && (a < 0 || a > 889))) {
+                throw Error("many scientists believe Mew to be the ancestor of Pokémon)");
             }
             if (configuration.zeroBased) {
                 return K[--a];
